@@ -1,7 +1,5 @@
-package com.github.jeancsanchez
+package com.github.jeancsanchez.viacepapi
 
-import br.com.jeancsanchez.restinterceptor.RestErrorInterceptor
-import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,10 +15,10 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 @Suppress("SpellCheckingInspection")
 class ViaCepRequest {
+
     private val api: ViaCepAPI by lazy {
         Retrofit.Builder()
-            .baseUrl("http://viacep.com.br/ws/")
-            .client(OkHttpClient.Builder().apply { addInterceptor(RestErrorInterceptor()) }.build())
+            .baseUrl("http://viacep.com.br/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .run { create(ViaCepAPI::class.java) }
@@ -34,17 +32,17 @@ class ViaCepRequest {
      */
     fun buscarCep(
         cep: Long,
-        onSuccess: (Cep) -> Unit,
+        onSuccess: (Cep?) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         api
             .buscarCep(cep)
             .enqueue(object : Callback<Cep> {
-                override fun onResponse(call: Call<Cep>, response: Response<Cep>) {
-                    response.body()?.let { onSuccess(it) }
+                override fun onResponse(call: Call<Cep?>, response: Response<Cep>) {
+                    response.body()?.let { onSuccess(it) } ?: onSuccess(null)
                 }
 
-                override fun onFailure(call: Call<Cep>, t: Throwable) {
+                override fun onFailure(call: Call<Cep?>, t: Throwable) {
                     onError(t)
                 }
             })

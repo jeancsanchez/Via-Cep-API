@@ -1,1 +1,1 @@
-include ':viacepapi'
+include ':viacepapi', ':example'

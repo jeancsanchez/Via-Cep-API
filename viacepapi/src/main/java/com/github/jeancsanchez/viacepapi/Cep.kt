@@ -1,4 +1,4 @@
-package com.github.jeancsanchez
+package com.github.jeancsanchez.viacepapi
 
 /**
  * @author Jean Carlos (Github: @jeancsanchez)
