@@ -16,14 +16,12 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        ViaCepRequest().run {
-            buscarCep(60752310,
-                onSuccess = { cep: Cep? ->
-                    txtLogradouro?.text = cep?.logradouro ?: "Não encontrado!"
-                },
-                onError = {
-                    Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
-                })
-        }
+        ViaCepRequest().buscarCep(60752310,
+            onSuccess = { cep: Cep? ->
+                txtLogradouro?.text = cep?.logradouro ?: "Não encontrado!"
+            },
+            onError = {
+                Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
+            })
     }
 }
