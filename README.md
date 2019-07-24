@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/jeancsanchez/Via-Cep-API.svg)](https://jitpack.io/#jeancsanchez/Via-Cep-API)
+
 Via CEP API
 ===================
 
