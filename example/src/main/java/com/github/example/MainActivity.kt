@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         edtCep?.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
                 if (s?.isNotEmpty() == true && preenchimentoAutomatico.not()) {
                     val cepString = s.toString().replace("-", "")
 
@@ -46,9 +49,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     limparEndereco()
                 }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
