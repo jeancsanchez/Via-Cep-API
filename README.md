@@ -50,6 +50,6 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.jeancsanchez:viacepapi:{latest version}'
+    implementation 'com.github.jeancsanchez:Via-Cep-API:{latest version}'
 }
 ```
