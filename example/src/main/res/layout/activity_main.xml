@@ -11,6 +11,7 @@
     <EditText
             android:id="@+id/edtCep"
             android:layout_width="wrap_content"
+            android:inputType="number"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -21,6 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="UF"
+            android:inputType="textCapCharacters"
+            android:maxLength="2"
+            android:textAllCaps="true"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/edtCep"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -38,7 +42,10 @@
 
     <EditText
             android:id="@+id/edtLogradouro"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toStartOf="@id/edtBairro"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/edtUf"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,13 +54,10 @@
 
     <EditText
             android:id="@+id/edtBairro"
-            android:layout_width="0dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="Bairro"
             app:layout_constraintEnd_toEndOf="@id/edtComplemento"
-            app:layout_constraintStart_toEndOf="@id/edtLogradouro"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             app:layout_constraintTop_toTopOf="@id/edtLogradouro"
             app:layout_constraintBottom_toBottomOf="@id/edtLogradouro"/>
 
@@ -67,4 +71,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edtBairro"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtComplemento"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

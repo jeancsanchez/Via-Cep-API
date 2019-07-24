@@ -52,7 +52,7 @@ class ViaCepRequest {
      * Buscar por ceps baseado em um endereço.
      * @param uf Sigla do estado. Exemplo: Ceará -> uf: CE.
      * @param cidade Nome da cidade. Exemplo: Fortaleza.
-     * @param logradouro Logradouro.
+     * @param bairro Logradouro.
      * @param onSuccess Callback de sucesso.
      * @param onError Callback de erro.
      */
@@ -63,7 +63,7 @@ class ViaCepRequest {
         onSuccess: (List<Cep>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        if (cidade.length > 3 && logradouro.length > 3) {
+        if (uf.length == 2 && cidade.length > 3 && logradouro.length > 3) {
             api
                 .buscarCepsPorEndereco(uf, cidade, logradouro)
                 .enqueue(object : Callback<List<Cep>> {
