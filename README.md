@@ -8,6 +8,9 @@ Via CEP API
 Uma biblioteca Android para consulta de CEPs. Basicamente ela usa a [API do Via CEP](http://viacep.com.br) :stuck_out_tongue_closed_eyes:
 
 
+![](https://im5.ezgif.com/tmp/ezgif-5-c37df4978bb0.gif)
+
+
 Como utilizar
 --------
 
