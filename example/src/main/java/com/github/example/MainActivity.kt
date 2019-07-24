@@ -1,11 +1,8 @@
 package com.github.example
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.github.jeancsanchez.viacepapi.Cep
 import com.github.jeancsanchez.viacepapi.ViaCepRequest
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,12 +13,13 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        ViaCepRequest().buscarCep(60752310,
-            onSuccess = { cep: Cep? ->
-                txtLogradouro?.text = cep?.logradouro ?: "Não encontrado!"
+        ViaCepRequest().buscarCepsPorEndereco(
+            uf = "CE",
+            cidade = "Fortaleza",
+            logradouro = "Domingos",
+            onSuccess = { ceps ->
             },
             onError = {
-                Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
             })
     }
 }
