@@ -35,7 +35,7 @@ Como utilizar
 
 Download
 --------
-1- Add the Jitpack Repository in your root build.gradle file:
+1- Adicionar o repositrio do Jitpack em seu arquivo build.gradle:
 
 ```groovy
 allprojects {
@@ -46,7 +46,7 @@ allprojects {
 }
   ```
 
-2- Add the dependency in your project-level build.gradle file:
+2- Adicionar a dependência no build.gradle no módulo do app:
 
 ```groovy
 dependencies {
